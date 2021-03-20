@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <title>Coding Challenge 2</title>
+</head>
+
+<body>
+    <script>
+        const M_height = 1.6;
+        const M_weight = 78;
+        const J_weight = 92;
+        const J_height = 1.95;
+
+        const M_BMI = M_weight / (M_height * M_height);
+        const J_BMI = J_weight / (J_height * J_height);
+        const markHigherBMI = (M_BMI > J_BMI);
+        if (markHigherBMI) {
+            console.log('Marks BMI is higher than John ');
+        } else {
+            console.log("John's BMI is Higher than Mark's");
+        }
+    </script>
+</body>
+
+</html>
