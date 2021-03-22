@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <title>Coding Challenge 3</title>
+</head>
+
+<body>
+    <script>
+        const sd1 = 96;
+        const sd2 = 108;
+        const sd3 = 89;
+        const avgd = (sd1 + sd2 + sd3) / 3;
+        console.log('dolphins avg' + ' = ' + avgd);
+        const sk1 = 97;
+        const sk2 = 91;
+        const sk3 = 110;
+        const avgk = (sk1 + sk2 + sk3) / 3;
+        console.log('Koalas avg' + ' = ' + avgk);
+        const min = 100;
+        if (avgd > avgk && avgd >= 100) {
+            console.log('dolphins are the winners');
+        }
+
+        else if (avgk > avgd && avgk >= 100) {
+            console.log("Koalas are winners");
+        }
+
+        else if (avgk === avgd) {
+            console.log("its a Draw");
+        }
+        else {
+            console.log("no one wins the trophy");
+        }
+
+    </script>
+</body>
+
+</html>
