@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <title>Coding Challenge 5</title>
+</head>
+
+<body>
+    <script>
+        const calcAverage = (s1, s2, s3) => (s1 + s2 + s3) / 3
+        scoreDolphins = calcAverage(85, 54, 41);
+        console.log('score of dolhpins = ' + scoreDolphins);
+        scoreKoalas = calcAverage(23, 34, 27);
+        console.log('Score of Koalas =' + scoreKoalas);
+
+        function checkWinner(scoreDolphins, scoreKoalas) {
+            if (scoreDolphins >= 2 * scoreKoalas) {
+                console.log("dolphins are the Winners");
+            } else if (scoreKoalas >= 2 * scoreDolphins) {
+                console.log("Koalas are the Winners");
+            } else {
+                console.log("No one Wins");
+            }
+        }
+        checkWinner(scoreDolphins, scoreKoalas);
+
+    </script>
+</body>
+
+</html>
