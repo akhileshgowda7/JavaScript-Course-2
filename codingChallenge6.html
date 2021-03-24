@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <title>Coding Challenge 6</title>
+</head>
+
+<body>
+    <script>
+        let tip = 0;;
+        function calcTip(bill) {
+            if (bill >= 50 && bill <= 300) {
+                tip = bill * 0.15;
+            } else {
+                tip = bill * 0.20;
+            }
+            return tip;
+
+        }
+        console.log("tip =" + calcTip(100));
+
+        const bills = [125, 555, 44];
+
+        const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+        console.log(tips);
+
+        const total = [bills[0] + calcTip(bills[0]), bills[1] + calcTip(bills[1]), bills[2] + calcTip(bills[2])];
+        console.log(total);
+
+    </script>
+</body>
+
+</html>
