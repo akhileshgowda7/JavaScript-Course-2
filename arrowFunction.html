@@ -1,0 +1,21 @@
+<html>
+
+<head>
+    <title>Arrow Function</title>
+</head>
+
+<body>
+    <script>
+        const calcAge3 = birthYeah => 2037 - birthYeah;
+        const age3 = calcAge3(1998);
+        console.log(age3);
+
+        const yearsUntilRetirement = birthYeah => {
+            const age = 2037 - birthYeah;
+            const retirement = 65 - age;
+            return retirement;
+        }
+        console.log(yearsUntilRetirement(1998));
+
+    </script>
+</body>
