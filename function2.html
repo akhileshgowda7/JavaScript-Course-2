@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <title>Function within a Function</title>
+</head>
+
+<body>
+    <script>
+        const calcAge = function (birthYeah) {
+            return 2037 - birthYeah;
+        }
+        const yearsUntilRetirement = function (birthYeah, firstName) {
+            const age = calcAge(birthYeah);
+            const retirement = 65 - age;
+
+            if (retirement > 0) {
+                console.log(`${firstName} retires in ${retirement} years`);
+                return retirement;
+            } else {
+                console.log(`${firstName} has alreads retired`);
+                return -1;
+            }
+
+        }
+        console.log(yearsUntilRetirement(1998, 'Akhilesh'));
+        console.log(yearsUntilRetirement(1950, "grand DAd"));
+
+    </script>
+</body>
