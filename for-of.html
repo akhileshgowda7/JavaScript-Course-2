@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>For-of Loop</title>
+    </head>
+    <body>
+        <script>
+            const restaurant ={
+                name:'classico italino',
+                location:'via Angelo Tavanti 23, Firzene, Italy',
+                categories:['Italian','Pizzeria','Vegetarian','Organic'],
+                starterMenu:['Focaccia','Bruschetta','Garlic Bread','Caprese Salad'],
+                mainMenu:['Pizza','Pasta','Risotto'],
+                openingHours:{
+                    thu:{
+                        open:12,
+                        close:22,
+                    },
+                    fri:{
+                        open:11,
+                        close:23,
+                    },
+                    sat:{
+                        open:0,
+                        close:24,
+                    },
+                },
+                order: function(starterIndex, mainIndex){
+                    return [this.starterMenu[starterIndex],this.mainMenu[mainIndex]];
+                },
+                orderDelivery: function({
+                    starterIndex=1,
+                    mainIndex=0,
+                    time='20:00',
+                    address,
+                }){
+                    console.log(`order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]}will be delivered to ${address} at ${time}`);
+                }
+            }
+
+            const menu =[...restaurant.starterMenu, ...restaurant.mainMenu];
+            //implementing for of Loop
+            for(const item of menu)console.log(item);
+            for(const item of menu.entries()){
+                console.log(item);
+            }
+            //menu.entries() acts as array iterator
+                
+        </script>
+    </body>
+</html>
