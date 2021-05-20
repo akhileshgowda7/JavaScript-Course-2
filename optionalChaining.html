@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>For-of Loop</title>
+    </head>
+    <body>
+        <script>
+            const days =['mon','tue','wed','thu','fri','sat','sun'];
+            const openingHours={
+                    thu:{
+                        open:12,
+                        close:22,
+                    },
+                    fri:{
+                        open:11,
+                        close:23,
+                    },
+                    sat:{
+                        open:0,
+                        close:24,
+                    },
+                };
+            const restaurant ={
+                name:'classico italino',
+                location:'via Angelo Tavanti 23, Firzene, Italy',
+                categories:['Italian','Pizzeria','Vegetarian','Organic'],
+                starterMenu:['Focaccia','Bruschetta','Garlic Bread','Caprese Salad'],
+                mainMenu:['Pizza','Pasta','Risotto'],
+                //ES6 Enhanced object literal
+                openingHours,
+                //Enhanced Methods
+                order(starterIndex, mainIndex){
+                    return [this.starterMenu[starterIndex],this.mainMenu[mainIndex]];
+                },
+                orderDelivery({
+                    starterIndex=1,
+                    mainIndex=0,
+                    time='20:00',
+                    address,
+                }){
+                    console.log(`order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]}will be delivered to ${address} at ${time}`);
+                }
+            }
+
+            //Optional Chaining
+
+            console.log(restaurant.openingHours.mon?.open);
+            console.log(restaurant.openingHours?.mon?.open);
+
+            for (const day of days){
+                console.log(day);
+                //?? is the Null Coalsing operator to get 0 on saturday which is the opening hour.
+                const open = restaurant.openingHours[day]?.open ??'closed';
+                console.log(`On ${day}, we open at ${open}`);
+
+            }
+
+            //Methods
+
+            console.log(restaurant.order?.(0,1)??'Method does not exist');
+            console.log(restaurant.orderRisotto?.(0,1)??'Method does not exist');
+
+            //Arrays
+
+            const users =[{name:'Akhilesh',email:'hello@akhilesh'}];
+
+            if(users.length>0)console.log(users[0].name);
+            else console.log('user array empty');
+
+                
+        </script>
+    </body>
+</html>
