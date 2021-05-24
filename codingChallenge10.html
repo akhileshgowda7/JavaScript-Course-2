@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <script>
+            
+            const game = {
+           team1: 'Bayern Munich', team2: 'Borrussia Dortmund', players1:   
+           [
+           'Neuer',
+           'Pavard',
+           'Martinez',
+           'Alaba',
+           'Davies',
+            'Kimmich',
+            'Goretzka',
+             'Coman',
+            'Muller',
+            'Gnarby',
+            'Lewandowski',
+             ],players2 : [
+            'Burki',
+            'Schulz',
+            'Hummels',
+            'Akanji',
+            'Hakimi',
+            'Weigl',
+            'Witsel',
+            'Hazard',
+            'Brandt',
+            'Sancho',
+            'Gotze',
+           ], 
+           score: '4:0',
+           scored: ['Lewandowski', 'Gnarby', 'Lewandowski',
+              'Hummels'],
+            date: 'Nov 9th, 2037',
+            odds: {
+            team1: 1.33,
+             x: 3.25,
+            team2: 6.5,
+             }, };  
+
+             const goalScorers = game.scored;
+             console.log(goalScorers);
+
+             for (let i=1;i<=goalScorers.length;i++){
+                 console.log(`Goal ${i}: ${goalScorers[i-1]}` );
+             }
+
+             const oddValues = game.odds;
+             console.log(oddValues);
+             const entry = Object.values(oddValues);
+             console.log(entry);
+             
+              let sum=0;
+             for(const num of entry){
+
+                 sum=sum+num;
+             }
+             
+             const avg=sum/entry.length;
+             console.log(`The average of odds is ${avg}`);
+
+             //console.log(`Odds of victory Bayern Munich: ${entry[0]}\n Odds of Draw: ${entry[1]}\n Odds of Borussia Dortmund: ${entry[2]}`);
+
+            for(const[team,odd] of Object.entries(game.odds)){
+                const teamStr = team ==='x'?'Draw':`Victory ${game[team]}`;
+                console.log(`Odd of ${teamStr} ${odd}`);
+            }
+
+
+
+
+
+        </script>
+    </body>
+</html>
