@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Maps iterator</title>
+    </head>
+    <body>
+        <script>
+            const question = new Map([['question','What is the best Programming Language in the World?'],[1,'c'],[2,'Java'],[3,'javaScript'],['correct',3],[true,'Correct'],[false,'Try Again'],]);
+            console.log(question);
+
+            console.log(question.get('question'));
+
+            for(const [key,value] of question){
+                if(typeof key ==='number')console.log(`Answer ${key}: ${value}`);
+            }
+
+            const Answer = Number(prompt('Your answer'));
+            console.log(Answer);
+
+            if(Answer ===3){
+                console.log(question.get(true));
+            }else{
+                console.log(question.get(false));
+            }
+        </script>
+    </body>
+</html>
