@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Sets</title>
+    </head>
+    <body>
+        <script>
+            const orderSet = new Set(['Pasta','Pizza','Pizza','Risotto','Pasta','Pizza']);
+             //All the duplicates in the Set will be gone.
+            console.log(orderSet);
+
+            console.log(new Set('Akhilesh'));
+            console.log(orderSet.size);
+            console.log(orderSet.has('Bread'));
+            orderSet.add('Garlic Bread');
+            orderSet.delete('Risotto');
+            console.log(orderSet);
+
+            for(const order of orderSet) console.log(order);
+
+            //Example
+
+            const staff = ['waiter','chef','waiter','manager','chef','waiter'];
+
+            const staffUnique = new Set(staff);
+            console.log(staffUnique);
+
+
+        </script>
+    </body>
+</html>
