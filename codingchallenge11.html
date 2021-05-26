@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Coding Challenge 11</title>
+    </head>
+    <body>
+        <script>
+            const gameEvents = new Map([ [17, '⚽ GOAL'],
+                                       [36, '🔁 Substitution'],
+                                       [47, '⚽ GOAL'],
+                                       [61, '🔁 Substitution'],
+                                       [64, '🔶 Yellow card'],
+                                       [69, '🔴 Red card'],
+                                       [70, '🔁 Substitution'],
+                                       [72, '🔁 Substitution'],
+                                       [76, '⚽ GOAL'],
+                                       [80, '⚽ GOAL'],
+                                       [92, '🔶 Yellow card'],]);
+           //First Task
+            const event = new Set()
+            for(const[key,value]of gameEvents){
+                 event.add(value);
+            }
+            console.log(event);
+
+            //Second Task
+            gameEvents.delete(64);
+            console.log(gameEvents);
+
+            //Third Task
+
+            console.log(`An even Happened, On Average, every ${90 / gameEvents.size} minutes`);
+
+            //Fourth Task
+
+            for(const[min,ev] of gameEvents){
+                const half=min<=45? 'FIRST':'SECOND';
+                console.log(`[${half}Half] ${min}: ${ev}`);
+            }
+
+
+        </script>
+    </body>
+</html>
