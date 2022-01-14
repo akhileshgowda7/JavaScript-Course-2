@@ -97,4 +97,56 @@ const CreateUsernames = function(accs){//stw
   })
 };
 CreateUsernames(accounts);
-console.log(accounts)
+// console.log(accounts)
+const deposits = movements.filter(function(mov){
+  return mov > 0 ;
+})
+
+// console.log(deposits);
+
+const withdrawals = movements.filter(function(mov){
+  return mov<0;
+})
+// console.log(withdrawals);
+//accumulator is like a snowball
+//reduce has a second argument which is the initial value of the accumulator.
+
+
+const calcDisplayBalance = function(movements){
+  const balance = movements.reduce(function(acc,cur,i,arr){
+    return acc + cur ;
+  },0)
+  
+  // console.log(balance);
+  labelBalance.textContent=`${balance} €`;
+};
+calcDisplayBalance(account1.movements);
+// to find maximum element in movement
+
+const max = movements.reduce((acc,mov)=>{
+  if(acc>mov)return acc;
+  else return mov;
+
+},movements[0]);
+console.log(max);
+
+
+const eurToUsd = 1.1;
+//piplining
+const totalDepositUSD= movements.filter(mov=>mov>0).map(mov=>mov*eurToUsd).reduce((acc,mov)=>acc+mov,0);
+console.log(totalDepositUSD);
+
+const calcDisplaySummary = function(movements){
+  const incomes = movements.filter(mov=>mov>0).reduce((acc,mov)=>acc+mov,0);
+  // console.log(incomes);
+  // console.log("hey");
+  labelSumIn.textContent=`${incomes}€`;
+
+  const out = movements.filter(mov=>mov<0).reduce((acc,mov)=>acc+mov,0);
+  // console.log(out);
+  labelSumOut.textContent=`${Math.abs(out)}€`;
+
+  const interest=movements.filter(mov=>mov>0).map(deposit=>deposit*1.2/100).filter((int,i,arr)=>int>=1).reduce((acc,mov)=>acc+mov,0);
+  labelSumInterest.textContent=`${interest}€`;
+};
+calcDisplaySummary(account1.movements);
