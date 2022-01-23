@@ -101,6 +101,17 @@ CreateUsernames(accounts);
 const deposits = movements.filter(function(mov){
   return mov > 0 ;
 })
+let currentAccount;
+btnLogin.addEventListener('click',function(e){
+//preventing form from submiting
+e.preventDefault();
+currentAccount=accounts.find(acc=>acc.username===inputLoginUsername.value);
+console.log(currentAccount);
+if(currentAccount?.pin===Number(inputLoginPin.value)){
+labelWelcome.textContent=`Welcome Back, ${currentAccount.owner.split(' ')[0]}`;
+containerApp.style.opacity=100;
+}
+})
 
 // console.log(deposits);
 
@@ -134,7 +145,7 @@ console.log(max);
 const eurToUsd = 1.1;
 //piplining
 const totalDepositUSD= movements.filter(mov=>mov>0).map(mov=>mov*eurToUsd).reduce((acc,mov)=>acc+mov,0);
-console.log(totalDepositUSD);
+// console.log(totalDepositUSD);
 
 const calcDisplaySummary = function(movements){
   const incomes = movements.filter(mov=>mov>0).reduce((acc,mov)=>acc+mov,0);
