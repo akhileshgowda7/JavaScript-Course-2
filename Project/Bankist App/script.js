@@ -113,16 +113,18 @@ const withdrawals = movements.filter(function(mov){
 //reduce has a second argument which is the initial value of the accumulator.
 
 
-const calcDisplayBalance = function(movements){
-  const balance = movements.reduce(function(acc,cur,i,arr){
+const calcDisplayBalance = function(acc){
+   acc.balance = acc.movements.reduce(function(acc,cur,i,arr){
     return acc + cur ;
   },0)
   
   // console.log(balance);
-  labelBalance.textContent=`${balance} €`;
+  labelBalance.textContent=`${acc.balance} €`;
 };
 // calcDisplayBalance(account1.movements);
 // to find maximum element in movement
+
+
 
 const max = movements.reduce((acc,mov)=>{
   if(acc>mov)return acc;
@@ -153,6 +155,14 @@ const calcDisplaySummary = function(acc){
 };
 // calcDisplaySummary(account1.movements);
 
+const updateUI = function(acc){
+  displayMovements(currentAccount.movements)
+
+calcDisplayBalance(currentAccount)
+
+calcDisplaySummary(currentAccount)
+}
+
 let currentAccount;
 btnLogin.addEventListener('click',function(e){
 //preventing form from submiting
@@ -166,11 +176,28 @@ containerApp.style.opacity=100;
 inputLoginUsername.value = inputLoginPin.value='';
 
 inputLoginPin.blur()
-displayMovements(currentAccount.movements)
+// displayMovements(currentAccount.movements)
 
-calcDisplayBalance(currentAccount.movements)
+// calcDisplayBalance(currentAccount)
 
-calcDisplaySummary(currentAccount)
+// calcDisplaySummary(currentAccount)
+updateUI(currentAccount)
 
 }
 });
+
+btnTransfer.addEventListener('click',function(e){
+  e.preventDefault();
+  const amount = Number(inputTransferAmount.value);
+  const receiverAcc = accounts.find(acc=>acc.username===inputTransferTo.value);
+
+inputTransferAmount.value = inputTransferTo.value = '';
+
+
+  if(amount>0 && receiverAcc && currentAccount.balance>=amount && receiverAcc.username!==currentAccount.username){
+currentAccount.movements.push(-amount);
+receiverAcc.movements.push(amount);
+
+updateUI(currentAccount);
+  }
+})
