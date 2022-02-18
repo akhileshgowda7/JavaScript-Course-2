@@ -243,3 +243,10 @@ btnSort.addEventListener('click',function(e){
   displayMovements(currentAccount.movements,!sorted);
   sorted=!sorted;
 });
+
+labelBalance.addEventListener('click',function(){
+
+const movementsUI = Array.from(document.querySelectorAll('.movements__value'),el=>Number(el.textContent.replace('€','')));
+console.log(movementsUI);
+
+})
