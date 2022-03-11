@@ -257,3 +257,14 @@ labelBalance.addEventListener('click',function(){
     if(i%3==0) row.style.backgroundColor='blue';
   })
 });
+
+currentAccount = account1;
+updateUI(currentAccount)
+containerApp.style.opacity=100;
+const now = new Date();
+const day = `${now.getDate()}`.padStart(2,0);
+const year= now.getFullYear();
+const month = `${now.getMonth()+1}`.padStart(2,0);
+const hours = now.getHours();
+const minutes= now.getMinutes();
+labelDate.textContent = `${day}/${month}/${year},${hours}:${minutes}`;
